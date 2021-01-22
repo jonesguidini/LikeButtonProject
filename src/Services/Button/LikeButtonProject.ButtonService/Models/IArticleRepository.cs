@@ -9,6 +9,6 @@ namespace LikeButtonProject.ButtonService.Models
     {
         Task<IEnumerable<Article>> GetAll();
 
-        Task<int> UpdateLikeCount(Guid articleId);
+        Task<int> AddLikeToArticle(Guid articleId, string userIp);
     }
 }

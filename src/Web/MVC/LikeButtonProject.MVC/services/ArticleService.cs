@@ -30,11 +30,19 @@ namespace LikeButtonProject.MVC.services
             return await DeserializarObjetoResponse<IEnumerable<ArticleViewModel>>(response);
         }
 
-        public async Task<int> UpdateLikeCount(Guid id)
+        public async Task<int> AddLikeArticle(Guid articleId, string userIP)
         {
-            var ArticleId = ObterConteudo(id);
+            var parameters = new Dictionary<string, object>
+             {
+                { "articleId", articleId },
+                { "userIP", userIP }
+             };
 
-            var response = await _httpClient.PostAsync("/api/updateLikeButtonCount", ArticleId);
+            var content = ObterConteudo(parameters);
+
+            //var content = new FormUrlEncodedContent(parameters);
+
+            var response = await _httpClient.PostAsync($"/api/addLikeArticle/{articleId}/{userIP}", content);
 
             TratarErrosResponse(response);
 

@@ -10,9 +10,14 @@ namespace LikeButtonProject.ButtonService.Data
     public class DataContext : DbContext, IUnitOfWork
     {
         public DataContext(DbContextOptions<DataContext> options)
-            : base(options) { }
+            : base(options) {
+
+            //ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+            //ChangeTracker.AutoDetectChangesEnabled = false;
+        }
 
         public DbSet<Article> Articles { get; set; }
+        public DbSet<Like> Likes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

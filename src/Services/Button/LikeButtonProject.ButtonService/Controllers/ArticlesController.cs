@@ -20,18 +20,37 @@ namespace LikeButtonProject.ButtonService.Controllers
         [Route("getAll")]
         [HttpGet]
         [ProducesResponseType(200)]
-        public async Task<IEnumerable<Article>> GetAllArticles()
+        public async Task<IEnumerable<ArticleDTO>> GetAllArticles()
         {
-            return await _articleRepository.GetAll();
+            var result = await _articleRepository.GetAll();
+
+            var dtoList = new List<ArticleDTO>();
+
+            foreach (var item in result)
+            {
+                var dto = new ArticleDTO
+                {
+                    Id = item.Id,
+                    ArticleContent = item.ArticleContent,
+                    CreatedAt = item.CreatedAt,
+                    LastLikeAction = item.CreatedAt,
+                    Title = item.Title,
+                    LikesCount = item.Like.Count
+                };
+
+                dtoList.Add(dto);
+            }
+
+            return dtoList;
         }
 
-        [Route("updateLikeButtonCount")]
+        [Route("addLikeArticle/{ArticleId}/{userIp}")]
         [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
-        public async Task<int> UpdateLikeButtonCount([FromBody] Guid ArticleId)
+        public async Task<int> AddLikeArticle(Guid ArticleId, string userIp)
         {
-            return await _articleRepository.UpdateLikeCount(ArticleId);
+            return await _articleRepository.AddLikeToArticle(ArticleId, userIp);
         }
     }
 }

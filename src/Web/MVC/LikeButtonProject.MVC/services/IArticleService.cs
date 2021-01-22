@@ -8,6 +8,6 @@ namespace LikeButtonProject.MVC.services
     public interface IArticleService
     {
         Task<IEnumerable<ArticleViewModel>> GetAll();
-        Task<int> UpdateLikeCount(Guid id);
+        Task<int> AddLikeArticle(Guid articleId, string userIP);
     }
 }

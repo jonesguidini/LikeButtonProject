@@ -35,7 +35,9 @@
             contentType: 'application/x-www-form-urlencoded',
             data: id,
             success: function (data, textStatus, jQxhr) {
-                $(refClass).html(data);
+                if (data != -1) {
+                    $(refClass).html(data);
+                }
             },
             error: function (jqXhr, textStatus, errorThrown) {
                 console.log(errorThrown);

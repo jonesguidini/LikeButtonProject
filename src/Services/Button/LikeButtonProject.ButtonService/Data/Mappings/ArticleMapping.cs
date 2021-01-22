@@ -29,8 +29,7 @@ namespace LikeButtonProject.ButtonService.Data.Mappings
             builder.Property(c => c.LastLikeAction)
                 .HasColumnType("Datetime");
 
-            builder.Property(c => c.LikesCount)
-                .HasColumnType("int");
+            builder.HasMany(a => a.Like).WithOne(b => b.Article);
         }
     }
 }

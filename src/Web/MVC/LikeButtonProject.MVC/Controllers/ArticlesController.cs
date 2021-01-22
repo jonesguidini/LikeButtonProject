@@ -19,16 +19,20 @@ namespace LikeButtonProject.MVC.Controllers
         
         public async Task<IActionResult> Index()
         {
-            var produtos = await _articleService.GetAll();
-            return View(produtos);
+            
+            var articles = await _articleService.GetAll();
+            
+            return View(articles);
         }
 
         [HttpPost]
         [Route("updateLikeCount/{id}")]
         public async Task<int> UpdateLikeCount(string id)
         {
+            var userIp = Request.HttpContext.Connection.RemoteIpAddress.ToString();
+
             var idGuid = Guid.Parse(id);
-            var response = await _articleService.UpdateLikeCount(idGuid);
+            var response = await _articleService.AddLikeArticle(idGuid, userIp);
             return response;
         }
     }

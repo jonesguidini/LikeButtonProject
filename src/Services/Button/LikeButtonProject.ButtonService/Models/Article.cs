@@ -12,7 +12,7 @@ namespace LikeButtonProject.ButtonService.Models
         public string ArticleContent { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public DateTime? LastLikeAction { get; private set; }
-        public int LikesCount { get; private set; }
+        public ICollection<Like> Like { get; set; }
 
 
         public Article(string title, string articleContent)
@@ -21,13 +21,8 @@ namespace LikeButtonProject.ButtonService.Models
             Title = title;
             ArticleContent = articleContent;
             CreatedAt = DateTime.Now;
+
+            Like = new List<Like>();
         }
-
-        public void UpdateLikesCount()
-        {
-            LikesCount += 1;
-        }
-
-
     }
 }

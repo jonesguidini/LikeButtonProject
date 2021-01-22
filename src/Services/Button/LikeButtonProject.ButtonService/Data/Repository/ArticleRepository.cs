@@ -21,28 +21,39 @@ namespace LikeButtonProject.ButtonService.Data.Repository
 
         public async Task<IEnumerable<Article>> GetAll()
         {
-            return await _context.Articles.OrderBy(x => x.Title).ToListAsync();
+            return await _context.Articles.Include(x => x.Like).OrderBy(x => x.Title).ToListAsync();
         }
 
-        public async Task<int> UpdateLikeCount(Guid articleId)
+        private Article GetArticle(Guid articleId)
         {
-            var article = await _context.Articles.FirstOrDefaultAsync(x => x.Id == articleId);
+            return _context.Articles.Include(x => x.Like).FirstOrDefault(x => x.Id == articleId);
+        }
 
-            if (article == null)
-                return 0;
+        public async Task<int> AddLikeToArticle(Guid articleId, string userIp)
+        {
+            var article = GetArticle(articleId);
 
-            article.UpdateLikesCount();
+            if (article == null || _context.Likes.Any(x => x.UserIP == userIp && x.Article.Id == articleId))
+                return -1;
 
-            _context.Articles.Update(article);
+            var like = new Like
+            {
+                Id = Guid.NewGuid(),
+                Article = article,
+                UserIP = userIp
+            };
 
+            _context.Likes.Add(like);
             await _context.Commit();
 
-            return article.LikesCount;
+            return GetArticle(articleId).Like.Count;
         }
 
         public void Dispose()
         {
             _context?.Dispose();
         }
+
+        
     }
 }
