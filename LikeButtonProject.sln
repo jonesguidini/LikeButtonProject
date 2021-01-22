@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2A0AE80D-103B-4692-9438-E1E92BF0CAF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Building Blocks", "Building Blocks", "{9D5931F0-3D67-477F-AB09-DBABC49D6656}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C9B631D3-C4D2-4593-BD91-06B57C3FC8C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{2DEF96CB-83A7-45FA-AD36-01E8FEDB2C69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{3F9BBB26-FC78-4D3B-9FDE-5CAB43994415}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LikeButtonProject.Core", "src\Building Blocks\Core\LikeButtonProject.Core\LikeButtonProject.Core.csproj", "{54A5D219-23E7-4662-9E76-47F9A48713EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Button", "Button", "{FC99257B-A45B-42B4-977F-CA00969F8810}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LikeButtonProject.ButtonService", "src\Services\Button\LikeButtonProject.ButtonService\LikeButtonProject.ButtonService.csproj", "{248496ED-21EE-4183-A5D3-0709B66597FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVC", "MVC", "{3F872EB2-94EE-4320-8EC0-5B54343E9388}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LikeButtonProject.MVC", "src\Web\MVC\LikeButtonProject.MVC\LikeButtonProject.MVC.csproj", "{3A797290-03B9-40E0-AE9D-15664AF7154B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54A5D219-23E7-4662-9E76-47F9A48713EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54A5D219-23E7-4662-9E76-47F9A48713EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54A5D219-23E7-4662-9E76-47F9A48713EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54A5D219-23E7-4662-9E76-47F9A48713EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{248496ED-21EE-4183-A5D3-0709B66597FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{248496ED-21EE-4183-A5D3-0709B66597FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{248496ED-21EE-4183-A5D3-0709B66597FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{248496ED-21EE-4183-A5D3-0709B66597FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A797290-03B9-40E0-AE9D-15664AF7154B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A797290-03B9-40E0-AE9D-15664AF7154B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A797290-03B9-40E0-AE9D-15664AF7154B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A797290-03B9-40E0-AE9D-15664AF7154B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9D5931F0-3D67-477F-AB09-DBABC49D6656} = {2A0AE80D-103B-4692-9438-E1E92BF0CAF4}
+		{C9B631D3-C4D2-4593-BD91-06B57C3FC8C0} = {2A0AE80D-103B-4692-9438-E1E92BF0CAF4}
+		{2DEF96CB-83A7-45FA-AD36-01E8FEDB2C69} = {2A0AE80D-103B-4692-9438-E1E92BF0CAF4}
+		{3F9BBB26-FC78-4D3B-9FDE-5CAB43994415} = {9D5931F0-3D67-477F-AB09-DBABC49D6656}
+		{54A5D219-23E7-4662-9E76-47F9A48713EE} = {3F9BBB26-FC78-4D3B-9FDE-5CAB43994415}
+		{FC99257B-A45B-42B4-977F-CA00969F8810} = {C9B631D3-C4D2-4593-BD91-06B57C3FC8C0}
+		{248496ED-21EE-4183-A5D3-0709B66597FD} = {FC99257B-A45B-42B4-977F-CA00969F8810}
+		{3F872EB2-94EE-4320-8EC0-5B54343E9388} = {2DEF96CB-83A7-45FA-AD36-01E8FEDB2C69}
+		{3A797290-03B9-40E0-AE9D-15664AF7154B} = {3F872EB2-94EE-4320-8EC0-5B54343E9388}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {514E2DB9-AFF9-4649-9CBB-0E642E652194}
+	EndGlobalSection
+EndGlobal

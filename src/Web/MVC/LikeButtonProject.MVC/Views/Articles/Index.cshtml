@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LikeButtonProject.MVC.Models.ArticleViewModel>
+
+@{
+    ViewData["Title"] = "Like Button Project";
+}
+
+<h1>Articles</h1>
+
+<table class="table">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+                    <b>Created At:</b> @Html.DisplayFor(modelItem => item.CreatedAt) <br />
+                    <p>@Html.DisplayFor(modelItem => item.ArticleContent)</p>
+                    <button class="btn btn-primary btn-lg float-left" onclick="UpdateLikeAccount('@item.Id')"> Like (<span id="btlink_@item.Id">@Html.DisplayFor(modelItem => item.LikesCount)</span>) </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript">
+
+    function UpdateLikeAccount(id) {
+
+        var refClass = '#btlink_' + id;
+
+        $.ajax({
+            url: '/updateLikeCount/' + id,
+            dataType: 'text',
+            type: 'post',
+            contentType: 'application/x-www-form-urlencoded',
+            data: id,
+            success: function (data, textStatus, jQxhr) {
+                $(refClass).html(data);
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        });
+    }
+
+</script>
+
